@@ -3,60 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Demonstração de Balanceamento de Link</title>
+    <title>Mikrotik - Roteamento Inteligente e Balanceamento</title>
     <link rel="stylesheet" href="balanceamento.css">
 </head>
 <body>
 
-    <h2>Como funciona o Balanceamento de Links (Load Balance)?</h2>
-    <p>Em vez de deixar um link parado, o roteador divide o tráfego da empresa entre os dois links, somando a velocidade e evitando lentidão.</p>
+    <h2>Roteamento Inteligente (Policy-Based Routing)</h2>
+    <p>O Mikrotik pode separar o tráfego de rede, enviando sistemas críticos por um link e redes secundárias (como Wi-Fi) por outro.</p>
 
     <div class="container">
         
         <div class="setores">
-            <h3 class="titulo-setores">Setores</h3>
-            <div class="box financeiro">Financeiro</div>
-            <div class="box vendas">Vendas</div>
-            <div class="box admin">Administração</div>
+            <h3 class="titulo-setores">Origem do Tráfego</h3>
+            <div class="box bancos">Sites de Bancos</div>
+            <div class="box servidores">Servidores Remotos</div>
+            <div class="box wifi">Equipamentos Wi-Fi</div>
         </div>
 
         <div class="conexao-container"><div class="conexao balanceada" id="linha-entrada"><div class="dados"></div></div></div>
 
-        <div class="roteador">Load Balancer<br>(Distribui o Tráfego)</div>
+        <div class="roteador">Mikrotik<br>(Gerencia as Regras)</div>
 
-        <div style="display: flex; flex-direction: column; gap: 30px;">
+        <div class="grupo-links">
             
-            <div style="display: flex; align-items: center; gap: 10px;">
+            <div class="link-item">
                 <div class="conexao-container">
-                    <div class="conexao balanceada" id="linha-link1"><div class="dados"></div></div>
+                    <div class="conexao principal-ativa" id="linha-link1"><div class="dados"></div></div>
                 </div>
-                <div class="link-box ativo-balanceado" id="link1">
-                    Link 1 (Operadora A)
-                    <div class="status" id="status-link1">📊 50% do Tráfego<br>Fluxo Rápido</div>
+                <div class="link-box principal-ativo" id="link1">
+                    Link 1 (Principal)
+                    <div class="status" id="status-link1">🟢 Bancos<br>🔵 Servidores Remotos</div>
                 </div>
             </div>
 
-            <div style="display: flex; align-items: center; gap: 10px;">
+            <div class="link-item">
                 <div class="conexao-container">
-                    <div class="conexao balanceada" id="linha-link2"><div class="dados"></div></div>
+                    <div class="conexao backup-ativa" id="linha-link2"><div class="dados"></div></div>
                 </div>
-                <div class="link-box ativo-balanceado" id="link2">
-                    Link 2 (Operadora B)
-                    <div class="status" id="status-link2">📊 50% do Tráfego<br>Fluxo Rápido</div>
+                <div class="link-box backup-ativo" id="link2">
+                    Link 2 (Backup)
+                    <div class="status" id="status-link2">🟠 Equipamentos Wi-Fi<br>(Isolado)</div>
                 </div>
             </div>
 
         </div>
 
-        <div class="conexao-container" style="width: 40px;"></div>
+        <div class="conexao-container linha-final"></div>
 
         <div class="internet">🌐 NUVEM<br>(Internet)</div>
 
     </div>
 
     <div class="controles">
-        <button class="btn-desativar" onclick="desativarBalanceamento()">⚠️ Desativar Balanceamento (Simular Lentidão)</button>
-        <button class="btn-ativar" onclick="ativarBalanceamento()">⚖️ Ativar Balanceamento (Fluxo Ideal)</button>
+        <button class="btn-pbr" onclick="ativarRegras()">🎯 Ativar Regras Específicas (PBR)</button>
+        <button class="btn-ativar" onclick="ativarBalanceamento()">⚖️ Balanceamento 50/50 (Misturado)</button>
+        <button class="btn-desativar" onclick="desativarBalanceamento()">⚠️ Simular Falha nas Regras</button>
     </div>
 
     <script src="balanceamento.js"></script>
