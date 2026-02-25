@@ -30,11 +30,11 @@ function ativarBalanceamento() {
 function desativarBalanceamento() {
     // Simula uma configuração errada onde todo o tráfego pesado e o Wi-Fi vão pro mesmo link
     document.getElementById('link1').className = 'link-box sobrecarregado';
-    document.getElementById('status-link1').innerHTML = '🔥 100% do Tráfego<br>REDE SOBRECARREGADA';
+    document.getElementById('status-link1').innerHTML = '🔥 95% do Tráfego<br>REDE SOBRECARREGADA';
     document.getElementById('linha-link1').className = 'conexao engarrafada';
 
     document.getElementById('link2').className = 'link-box ocioso';
-    document.getElementById('status-link2').innerHTML = '💤 0% do Tráfego<br>Ocioso (Desperdício)';
+    document.getElementById('status-link2').innerHTML = '💤 5% do Tráfego<br>Ocioso (Desperdício)';
     document.getElementById('linha-link2').className = 'conexao desligada';
     
     document.getElementById('linha-entrada').className = 'conexao engarrafada';
