@@ -68,7 +68,7 @@ p { color: #555; font-size: 16px; margin-bottom: 30px; }
 .ocioso { border-color: #bdc3c7; background-color: #f2f3f4; color: #7f8c8d; }
 
 /* Linhas conectando */
-.conexao-container { display: flex; align-items: center; width: 90px; }
+.conexao-container { display: flex; align-items: center; justify-content: center; width: 90px; }
 .linha-final { width: 40px; }
 .conexao { width: 100%; height: 8px; background-color: #bdc3c7; position: relative; border-radius: 4px; overflow: hidden; }
 
@@ -120,16 +120,17 @@ button {
 
 
 /* =======================================================
-   RESPONSIVIDADE (Mobile e Tablets)
+   RESPONSIVIDADE RIGOROSA (Mobile e Tablets)
    ======================================================= */
 @media (max-width: 980px) {
-    .container { flex-direction: column; padding: 30px 15px; gap: 15px; }
+    .container { flex-direction: column; padding: 30px 10px; gap: 10px; }
 
-    .setores { flex-direction: row; flex-wrap: wrap; justify-content: center; margin-bottom: 10px; }
+    .setores { flex-direction: row; flex-wrap: wrap; justify-content: center; margin-bottom: 0; }
     .titulo-setores { width: 100%; margin-bottom: 5px; }
-    .box { width: 130px; font-size: 13px; padding: 10px; }
+    .box { width: 140px; font-size: 13px; padding: 10px; margin: 5px; } 
 
-    .conexao-container { width: 8px !important; height: 40px; margin: 5px 0; }
+    /* FORÇANDO A LINHA FINAL E AS CONEXÕES A FICAREM NA VERTICAL E CENTRALIZADAS */
+    .conexao-container, .linha-final { width: 8px !important; height: 40px !important; margin: 0 auto; }
     .conexao { width: 100%; height: 100%; }
     
     .dados { width: 100%; height: 25px; }
@@ -139,12 +140,13 @@ button {
     
     .conexao.engarrafada .dados { animation: fluir-vertical-rapido 0.3s linear infinite; height: 60%; width: 100%; }
 
-    .roteador, .internet { width: 220px; text-align: center; }
+    .roteador, .internet { width: 220px; text-align: center; margin: 0 auto; }
 
-    .grupo-links { flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 15px; }
-    .link-item { flex-direction: column; gap: 5px; }
-    .link-box { width: 160px; font-size: 14px; }
+    /* Organizando os links para o mobile de forma centralizada */
+    .grupo-links { flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 15px; width: 100%; }
+    .link-item { flex-direction: column; gap: 5px; align-items: center; }
+    .link-box { width: 180px; font-size: 14px; }
 
-    .controles { flex-direction: column; gap: 10px; width: 100%; max-width: 300px; margin: 30px auto 0 auto;}
+    .controles { flex-direction: column; gap: 10px; width: 100%; max-width: 320px; margin: 20px auto 0 auto;}
     button { width: 100%; margin: 0;}
 }
