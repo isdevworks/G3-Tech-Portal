@@ -1,0 +1,93 @@
+body { 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+    text-align: center; 
+    background-color: #f0f4f8; 
+    color: #333;
+    padding: 20px; 
+}
+h2 { color: #2c3e50; }
+p { color: #555; font-size: 16px; margin-bottom: 30px; }
+
+.container { 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    gap: 30px; 
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.setores { display: flex; flex-direction: column; gap: 15px; }
+.titulo-setores { margin: 0 0 -5px 0; color: #2c3e50; font-size: 18px; text-transform: uppercase; letter-spacing: 1px; }
+.box { padding: 15px 20px; border-radius: 8px; font-weight: bold; color: white; width: 140px; text-align: center; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
+.financeiro { background-color: #27ae60; }
+.vendas { background-color: #2980b9; }
+.admin { background-color: #e67e22; }
+
+.roteador { 
+    background-color: #005a20; 
+    padding: 30px 20px; 
+    border-radius: 12px; 
+    color: white; 
+    font-weight: bold; 
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    width: 160px;
+}
+
+.link-box { 
+    padding: 15px; 
+    border: 3px solid #ccc; 
+    border-radius: 8px; 
+    font-weight: bold; 
+    width: 180px; 
+    transition: all 0.4s ease; 
+}
+.internet { background-color: #8e44ad; padding: 50px 20px; border-radius: 12px; color: white; font-weight: bold; box-shadow: 0 4px 8px rgba(0,0,0,0.2); }
+
+/* Status dos Links */
+.status { font-size: 13px; margin-top: 8px; padding: 5px; border-radius: 4px; transition: 0.3s; }
+.ativo-balanceado { border-color: #3498db; background-color: #ebf5fb; color: #2980b9; }
+.sobrecarregado { border-color: #e74c3c; background-color: #fdedec; color: #e74c3c; box-shadow: 0 0 10px rgba(231, 76, 60, 0.5); }
+.ocioso { border-color: #bdc3c7; background-color: #f2f3f4; color: #7f8c8d; }
+
+/* Linhas conectando */
+.conexao-container { display: flex; align-items: center; width: 90px; }
+.conexao { width: 100%; height: 8px; background-color: #bdc3c7; position: relative; border-radius: 4px; overflow: hidden; }
+
+/* Animações dos dados */
+@keyframes fluir-lento { 0% { transform: translateX(-100%); } 100% { transform: translateX(500%); } }
+@keyframes fluir-rapido { 0% { transform: translateX(-100%); } 100% { transform: translateX(200%); } }
+
+.dados { width: 25px; height: 100%; position: absolute; border-radius: 4px; }
+
+/* Estados das conexões */
+.conexao.balanceada { background-color: #aed6f1; }
+.conexao.balanceada .dados { background-color: #3498db; animation: fluir-lento 0.8s linear infinite; }
+
+.conexao.engarrafada { background-color: #f5b7b1; }
+.conexao.engarrafada .dados { background-color: #e74c3c; animation: fluir-rapido 0.3s linear infinite; width: 60%; }
+
+.conexao.desligada { background-color: #ecf0f1; }
+.conexao.desligada .dados { display: none; }
+
+.controles { margin-top: 40px; }
+button { 
+    padding: 12px 24px; 
+    font-size: 16px; 
+    margin: 0 10px; 
+    cursor: pointer; 
+    border: none; 
+    border-radius: 8px; 
+    font-weight: bold;
+    color: white; 
+    transition: 0.2s;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+.btn-desativar { background-color: #e67e22; }
+.btn-desativar:hover { background-color: #d35400; }
+.btn-ativar { background-color: #3498db; }
+.btn-ativar:hover { background-color: #2980b9; }

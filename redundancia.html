@@ -24,9 +24,9 @@
 
         <div class="roteador">Mikrotik<br>(Gerencia a Rede)</div>
 
-        <div style="display: flex; flex-direction: column; gap: 30px;">
+        <div class="grupo-links">
             
-            <div style="display: flex; align-items: center; gap: 10px;">
+            <div class="link-item">
                 <div class="conexao-container">
                     <div class="conexao ativa" id="linha-link1"><div class="dados"></div></div>
                 </div>
@@ -36,19 +36,19 @@
                 </div>
             </div>
 
-            <div style="display: flex; align-items: center; gap: 10px;">
+            <div class="link-item">
                 <div class="conexao-container">
                     <div class="conexao" id="linha-link2"><div class="dados"></div></div>
                 </div>
                 <div class="link-box standby" id="link2">
-                    Link 2 (Reserva)
+                    Link 2 (Backup)
                     <div class="status" id="status-link2">⏳ STANDBY<br>Aguardando</div>
                 </div>
             </div>
 
         </div>
 
-        <div class="conexao-container" style="width: 40px;"></div>
+        <div class="conexao-container linha-final"></div>
 
         <div class="internet">🌐 NUVEM<br>(Internet)</div>
 

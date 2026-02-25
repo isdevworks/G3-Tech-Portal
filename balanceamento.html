@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demonstração de Balanceamento de Link</title>
+    <link rel="stylesheet" href="balanceamento.css">
+</head>
+<body>
+
+    <h2>Como funciona o Balanceamento de Links (Load Balance)?</h2>
+    <p>Em vez de deixar um link parado, o roteador divide o tráfego da empresa entre os dois links, somando a velocidade e evitando lentidão.</p>
+
+    <div class="container">
+        
+        <div class="setores">
+            <h3 class="titulo-setores">Setores</h3>
+            <div class="box financeiro">Financeiro</div>
+            <div class="box vendas">Vendas</div>
+            <div class="box admin">Administração</div>
+        </div>
+
+        <div class="conexao-container"><div class="conexao balanceada" id="linha-entrada"><div class="dados"></div></div></div>
+
+        <div class="roteador">Load Balancer<br>(Distribui o Tráfego)</div>
+
+        <div style="display: flex; flex-direction: column; gap: 30px;">
+            
+            <div style="display: flex; align-items: center; gap: 10px;">
+                <div class="conexao-container">
+                    <div class="conexao balanceada" id="linha-link1"><div class="dados"></div></div>
+                </div>
+                <div class="link-box ativo-balanceado" id="link1">
+                    Link 1 (Operadora A)
+                    <div class="status" id="status-link1">📊 50% do Tráfego<br>Fluxo Rápido</div>
+                </div>
+            </div>
+
+            <div style="display: flex; align-items: center; gap: 10px;">
+                <div class="conexao-container">
+                    <div class="conexao balanceada" id="linha-link2"><div class="dados"></div></div>
+                </div>
+                <div class="link-box ativo-balanceado" id="link2">
+                    Link 2 (Operadora B)
+                    <div class="status" id="status-link2">📊 50% do Tráfego<br>Fluxo Rápido</div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="conexao-container" style="width: 40px;"></div>
+
+        <div class="internet">🌐 NUVEM<br>(Internet)</div>
+
+    </div>
+
+    <div class="controles">
+        <button class="btn-desativar" onclick="desativarBalanceamento()">⚠️ Desativar Balanceamento (Simular Lentidão)</button>
+        <button class="btn-ativar" onclick="ativarBalanceamento()">⚖️ Ativar Balanceamento (Fluxo Ideal)</button>
+    </div>
+
+    <script src="balanceamento.js"></script>
+
+</body>
+</html>

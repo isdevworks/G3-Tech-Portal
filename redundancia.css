@@ -21,10 +21,10 @@ h2 { color: #2c3e50; }
 
 .setores { display: flex; flex-direction: column; gap: 15px; }
 .titulo-setores {
-    margin: 0 0 -5px 0; /* Puxa o título um pouquinho para perto do Financeiro */
+    margin: 0 0 -5px 0; 
     color: #2c3e50;
     font-size: 15px;
-    text-transform: uppercase; /* Deixa a palavra em MAIÚSCULO */
+    text-transform: uppercase; 
     letter-spacing: 1px;
 }
 
@@ -42,6 +42,10 @@ h2 { color: #2c3e50; }
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 
+/* Novas classes estruturais */
+.grupo-links { display: flex; flex-direction: column; gap: 30px; }
+.link-item { display: flex; align-items: center; gap: 10px; }
+
 .link-box { 
     padding: 15px; 
     border: 3px solid #ccc; 
@@ -58,26 +62,32 @@ h2 { color: #2c3e50; }
 .inativo { border-color: #e74c3c; background-color: #fdedec; color: #e74c3c; }
 .standby { border-color: #f39c12; background-color: #fef5e7; color: #f39c12; }
 
-/* Linhas conectando */
+/* Linhas conectando (Padrão PC - Horizontal) */
 .conexao-container { display: flex; align-items: center; width: 80px; }
+.linha-final { width: 40px; }
 .conexao { width: 100%; height: 6px; background-color: #bdc3c7; position: relative; border-radius: 3px; overflow: hidden; }
 
-/* Animação dos dados passando (Bolinhas) */
-@keyframes fluir {
+/* Animação Horizontal */
+@keyframes fluir-horizontal {
     0% { transform: translateX(-100%); }
     100% { transform: translateX(400%); }
 }
 
+/* Animação Vertical (Para o Mobile) */
+@keyframes fluir-vertical {
+    0% { transform: translateY(-100%); }
+    100% { transform: translateY(400%); }
+}
+
 .dados { width: 20px; height: 100%; background-color: transparent; position: absolute; }
 .conexao.ativa { background-color: #a9dfbf; }
-.conexao.ativa .dados { background-color: #27ae60; animation: fluir 1s linear infinite; }
+.conexao.ativa .dados { background-color: #27ae60; animation: fluir-horizontal 1s linear infinite; }
 .conexao.inativa { background-color: #e74c3c; }
 
-.controles { margin-top: 40px; }
+.controles { margin-top: 40px; display: flex; justify-content: center; gap: 20px; }
 button { 
     padding: 12px 24px; 
     font-size: 16px; 
-    margin: 0 10px; 
     cursor: pointer; 
     border: none; 
     border-radius: 8px; 
@@ -89,3 +99,51 @@ button {
 .btn-derrubar:hover { background-color: #c0392b; }
 .btn-restaurar { background-color: #27ae60; }
 .btn-restaurar:hover { background-color: #1e8449; }
+
+
+/* =======================================================
+   RESPONSIVIDADE: Adaptação para Celulares e Tablets
+   ======================================================= */
+@media (max-width: 950px) {
+    /* O fluxo muda de "lado a lado" para "de cima para baixo" */
+    .container { 
+        flex-direction: column; 
+        padding: 30px 15px;
+        gap: 15px;
+    }
+
+    /* Coloca os Setores lado a lado em vez de empilhados */
+    .setores { 
+        flex-direction: row; 
+        flex-wrap: wrap; 
+        justify-content: center;
+        margin-bottom: 10px;
+    }
+    .titulo-setores { width: 100%; margin-bottom: 5px; }
+    .box { width: 100px; font-size: 14px; padding: 10px; }
+
+    /* As conexões deixam de ser largas e passam a ser altas (Verticais) */
+    .conexao-container { width: 6px !important; height: 40px; margin: 5px 0; }
+    .conexao { width: 100%; height: 100%; }
+    
+    /* A bolinha de dados também muda de formato e animação */
+    .dados { width: 100%; height: 20px; }
+    .conexao.ativa .dados { animation: fluir-vertical 1s linear infinite; }
+
+    /* Organiza o Mikrotik e a Nuvem */
+    .roteador, .internet { width: 200px; text-align: center; }
+
+    /* Organiza os Links lado a lado debaixo do Mikrotik */
+    .grupo-links { 
+        flex-direction: row; 
+        flex-wrap: wrap; 
+        justify-content: center; 
+        gap: 15px;
+    }
+    .link-item { flex-direction: column; gap: 5px; } /* Fio descendo para a caixa do link */
+    .link-box { width: 140px; font-size: 14px; }
+
+    /* Ajusta os botões para telas menores */
+    .controles { flex-direction: column; gap: 15px; }
+    button { width: 100%; }
+}
