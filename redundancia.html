@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demonstração de Redundância de Internet</title>
+    <link rel="stylesheet" href="redundancia.css">
+</head>
+<body>
+
+    <h2>Como funciona a Redundância de Internet?</h2>
+    <p>Nesta empresa, todos os setores dependem da internet. Veja o que acontece quando o Link 1 falha.</p>
+
+    <div class="container">
+        
+        <div class="setores">
+            <h3 class="titulo-setores">Setores</h3>
+            <div class="box financeiro">Financeiro</div>
+            <div class="box vendas">Vendas</div>
+            <div class="box admin">Administração</div>
+        </div>
+
+        <div class="conexao-container"><div class="conexao ativa"><div class="dados"></div></div></div>
+
+        <div class="roteador">Mikrotik<br>(Gerencia a Rede)</div>
+
+        <div style="display: flex; flex-direction: column; gap: 30px;">
+            
+            <div style="display: flex; align-items: center; gap: 10px;">
+                <div class="conexao-container">
+                    <div class="conexao ativa" id="linha-link1"><div class="dados"></div></div>
+                </div>
+                <div class="link-box ativo" id="link1">
+                    Link 1 (Principal)
+                    <div class="status" id="status-link1">✅ ONLINE<br>Enviando dados</div>
+                </div>
+            </div>
+
+            <div style="display: flex; align-items: center; gap: 10px;">
+                <div class="conexao-container">
+                    <div class="conexao" id="linha-link2"><div class="dados"></div></div>
+                </div>
+                <div class="link-box standby" id="link2">
+                    Link 2 (Reserva)
+                    <div class="status" id="status-link2">⏳ STANDBY<br>Aguardando</div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="conexao-container" style="width: 40px;"></div>
+
+        <div class="internet">🌐 NUVEM<br>(Internet)</div>
+
+    </div>
+
+    <div class="controles">
+        <button class="btn-derrubar" onclick="simularQueda()">✂️ Simular Queda do Link 1</button>
+        <button class="btn-restaurar" onclick="restaurarLink()">🔌 Restaurar Link 1</button>
+    </div>
+
+    <script src="redundancia.js"></script>
+
+</body>
+</html>

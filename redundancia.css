@@ -1,0 +1,91 @@
+body { 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+    text-align: center; 
+    background-color: #f0f4f8; 
+    color: #333;
+    padding: 20px; 
+}
+h2 { color: #2c3e50; }
+
+.container { 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    gap: 30px; 
+    margin-top: 40px; 
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.setores { display: flex; flex-direction: column; gap: 15px; }
+.titulo-setores {
+    margin: 0 0 -5px 0; /* Puxa o título um pouquinho para perto do Financeiro */
+    color: #2c3e50;
+    font-size: 15px;
+    text-transform: uppercase; /* Deixa a palavra em MAIÚSCULO */
+    letter-spacing: 1px;
+}
+
+.box { padding: 15px 20px; border-radius: 8px; font-weight: bold; color: white; width: 140px; text-align: center; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
+.financeiro { background-color: #27ae60; }
+.vendas { background-color: #2980b9; }
+.admin { background-color: #e67e22; }
+
+.roteador { 
+    background-color: #34495e; 
+    padding: 30px 20px; 
+    border-radius: 12px; 
+    color: white; 
+    font-weight: bold; 
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.link-box { 
+    padding: 15px; 
+    border: 3px solid #ccc; 
+    border-radius: 8px; 
+    font-weight: bold; 
+    width: 180px; 
+    transition: all 0.4s ease; 
+}
+.internet { background-color: #8e44ad; padding: 50px 20px; border-radius: 12px; color: white; font-weight: bold; box-shadow: 0 4px 8px rgba(0,0,0,0.2); }
+
+/* Status dos Links */
+.status { font-size: 13px; margin-top: 8px; padding: 5px; border-radius: 4px; }
+.ativo { border-color: #27ae60; background-color: #eafaf1; color: #27ae60; }
+.inativo { border-color: #e74c3c; background-color: #fdedec; color: #e74c3c; }
+.standby { border-color: #f39c12; background-color: #fef5e7; color: #f39c12; }
+
+/* Linhas conectando */
+.conexao-container { display: flex; align-items: center; width: 80px; }
+.conexao { width: 100%; height: 6px; background-color: #bdc3c7; position: relative; border-radius: 3px; overflow: hidden; }
+
+/* Animação dos dados passando (Bolinhas) */
+@keyframes fluir {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(400%); }
+}
+
+.dados { width: 20px; height: 100%; background-color: transparent; position: absolute; }
+.conexao.ativa { background-color: #a9dfbf; }
+.conexao.ativa .dados { background-color: #27ae60; animation: fluir 1s linear infinite; }
+.conexao.inativa { background-color: #e74c3c; }
+
+.controles { margin-top: 40px; }
+button { 
+    padding: 12px 24px; 
+    font-size: 16px; 
+    margin: 0 10px; 
+    cursor: pointer; 
+    border: none; 
+    border-radius: 8px; 
+    font-weight: bold;
+    color: white; 
+    transition: 0.2s;
+}
+.btn-derrubar { background-color: #e74c3c; }
+.btn-derrubar:hover { background-color: #c0392b; }
+.btn-restaurar { background-color: #27ae60; }
+.btn-restaurar:hover { background-color: #1e8449; }
